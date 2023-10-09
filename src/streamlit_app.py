@@ -17,8 +17,6 @@ def main():
     if apikey_input:
         os.environ['OPENAI_API_KEY'] = apikey_input
 
-
-
         # Load dataframe with projects information.
         df = pd.read_csv("src/data/feed.csv", sep=",")
 
@@ -42,14 +40,15 @@ def main():
         with col1:
             recomm = st.button('Project recommendations')
         with col2:
-            info = st.button('Information about an specific project or projects')
+            info = st.button(
+                'Information about an specific project or projects')
         with col3:
             other = st.button('Other')
 
         if recomm:
             # Project input
             input_prompt = st.text_input("Tell us what are your interests, and we will give you project recommendations",
-                                        placeholder="Type here...")
+                                         placeholder="Type here...")
             html_string = """
             <p style="font-size:11px;color:grey;">GPT-Powered AI Assistant</p>
 
@@ -82,7 +81,7 @@ def main():
         elif info:
             # Project input
             input_prompt = st.text_input("What project or projects do you need information about? (please separate their names using a comma)",
-                                        placeholder="Type here...")
+                                         placeholder="Type here...")
             html_string = """
             <p style="font-size:11px;color:grey;">GPT-Powered AI Assistant</p>
 
@@ -109,7 +108,7 @@ def main():
         elif other:
             # Project input
             input_prompt = st.text_input("Tell us how can we help you today and we will do our best!",
-                                        placeholder="Type here...")
+                                         placeholder="Type here...")
             html_string = """
             <p style="font-size:11px;color:grey;">GPT-Powered AI Assistant</p>
 
