@@ -7,11 +7,13 @@ from langchain.chat_models import ChatOpenAI
 from langchain.agents.agent_types import AgentType
 from langchain.agents import create_pandas_dataframe_agent
 import pandas as pd
+from decouple import config
 
 router = APIRouter()
 
-# Your API key should be secured and not exposed to the client
-os.environ['OPENAI_API_KEY'] = "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"
+
+OPENAI_API_KEY = config('OPENAI_API_KEY')
+os.environ['OPENAI_API_KEY'] = OPENAI_API_KEY
 
 # Load dataframe with projects information
 # Make sure your data CSV file is in the appropriate directory
